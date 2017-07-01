@@ -1,37 +1,11 @@
 package com.jet.edu;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
 
 public class CalculatorApp {
 
     public static void main(String[] args) {
-        /*String par1 = args[0];
-        String par2 = args[1];
-        Double per1 = Double.parseDouble(par2);
-        String par3 = args[2];
-        Double per2 = Double.parseDouble(par3);
-        switch (par1) {
-            case "module" : System.out.println(calculator2.module(per1)); break;
-            case "div" : System.out.println(calculator2.div(per1, per2)); break;
-            case "sub" : System.out.println(calculator2.sub(per1, per2)); break;
-            case "mul" : System.out.println(calculator2.mul(per1, per2)); break;
-            case "sum" : System.out.println(calculator2.sum(per1, per2)); break;
-        }*/
-        /*String comand = "";
-        String ag1 = "";
-        String ag2 = "";
-        int postion = 0;
-        for (String i : args){
-            if(postion++ == 0){
-                comand = i;
-            } else if (postion == 1){
-                ag1 = i;
-            }else {
-                ag2 = i;
-                postion = 0;
-            }
-        }*/
+
         String command = "";
         String arg1 = "";
         String arg2 = "";
@@ -55,33 +29,37 @@ public class CalculatorApp {
 
     }
 
-    public static void doCalculate(String operator, Double arg1, Double arg2) {
+
+    private static void doCalculate(String operator, Double arg1, Double arg2) {
+        String Variables = arg1 + " " + operator + " " + arg2 + " = ";
         switch (operator) {
             case "module":
                 System.out.println(calculator2.module(arg1));
                 break;
             case "div":
-                stringLog(arg1 + " " + operator + " " + arg2 + " = " + calculator2.div(arg1, arg2));
+                WriteToLog(Variables + calculator2.div(arg1, arg2));
                 break;
             case "sub":
-                stringLog(arg1 + " " + operator + " " + arg2 + " = " + calculator2.sub(arg1, arg2));
+                WriteToLog(Variables + calculator2.sub(arg1, arg2));
                 break;
             case "mul":
-                stringLog(arg1 + " " + operator + " " + arg2 + " = " + calculator2.mul(arg1, arg2));
+                WriteToLog(Variables + calculator2.mul(arg1, arg2));
                 break;
             case "sum":
-                stringLog(arg1 + " " + operator + " " + arg2 + " = " + calculator2.sum(arg1, arg2));
+                WriteToLog(Variables + calculator2.sum(arg1, arg2));
                 break;
+            default:
+                System.out.println("Wrong parameter!");
         }
     }
 
-    public static String stringLog(String... b) {
-        String result = "";
-        for (String current : b) {
-            result = result + current;
+    private static String WriteToLog(String... args) {
+        StringBuilder result = new StringBuilder();
+        for (String current : args) {
+            result.append(current);
         }
 
         System.out.println(result);
-        return result;
-    }
+        return result.toString();
+        }
 }
