@@ -48,8 +48,9 @@ public class CalculatorApp {
             case "sum":
                 WriteToLog(Variables + calculator2.sum(arg1, arg2));
                 break;
-            default:
+            default: {
                 System.out.println("Wrong parameter!");
+            }
         }
     }
 
@@ -61,5 +62,5 @@ public class CalculatorApp {
 
         System.out.println(result);
         return result.toString();
-        }
+    }
 }
